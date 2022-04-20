@@ -23,6 +23,7 @@ namespace SalaryCalculator
         public MainWindow()
         {
             InitializeComponent();
+            int a;
         }
     }
 }
