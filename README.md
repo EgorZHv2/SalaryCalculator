@@ -18,5 +18,7 @@
 <p style="font-size: large;">Тип используемой СУБД - Microsoft SQL Server. База данных строится в localdb на основе модели в entity framework</p>
     <h2>Индексация файлов</h1>  
 <p style="font-size: large;">Все файлы обязательны для индексации в виду их важности для работоспособности проекта</p>
+     <h2>Требования к оформлению файла GitIgnore</h1>  
+<p style="font-size: large;">Файлы формата .txt должны быть исключены из индексирования</p>
 </body>
 </html>
