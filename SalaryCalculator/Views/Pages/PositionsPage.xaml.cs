@@ -12,20 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SalaryCalculator.Data;
 
-namespace SalaryCalculator
+namespace SalaryCalculator.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PositionsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PositionsPage : Page
     {
-        public MainWindow()
+        public PositionsPage()
         {
             InitializeComponent();
-            
         }
-
-   }
+    }
 }

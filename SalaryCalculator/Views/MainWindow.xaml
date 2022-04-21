@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid Background="#E3FBEB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="100"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
+            <Button Style="{StaticResource BtMenu}">Должности</Button>
+            <Button Style="{StaticResource BtMenu}">Формы оплаты труда</Button>
+            <Button Style="{StaticResource BtMenu}">Нормы труда</Button>
+            <Button Style="{StaticResource BtMenu}">Сотрудники</Button>
+            <Button Style="{StaticResource BtMenu}">Отработанные единицы труда</Button>
+            <Button Style="{StaticResource BtMenu}">Размер оплаты</Button>
+            <Button Style="{StaticResource BtMenu}">Надбавки и штрафы</Button>
+            <Button Style="{StaticResource BtMenu}">Результаты</Button>
+            <Button Style="{StaticResource BtMenu}">Помощь</Button>
+            <Button Style="{StaticResource BtMenu}">Выход</Button>
+        </StackPanel>
+        <Frame x:Name="MainFrame" Grid.Column="1"></Frame>
     </Grid>
 </Window>
