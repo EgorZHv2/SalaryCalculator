@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:SalaryCalculator"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
-    <Grid Background="#E3FBEB">
+    <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100"></ColumnDefinition>
             <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
+        <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
             <Button Style="{StaticResource BtMenu}">Должности</Button>
             <Button Style="{StaticResource BtMenu}">Формы оплаты труда</Button>
             <Button Style="{StaticResource BtMenu}">Нормы труда</Button>

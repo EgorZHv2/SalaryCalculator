@@ -24,4 +24,16 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="PageName" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#848484"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="GridBackGround" TargetType="Grid">
+        <Setter Property="Background" Value="#E3FBEB"></Setter>
+    </Style>
 </ResourceDictionary>

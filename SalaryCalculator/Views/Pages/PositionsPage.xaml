@@ -8,7 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PositionsPage">
 
-    <Grid>
-        
+    <Grid Style="{StaticResource GridBackGround}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Должности</TextBlock>
+        <DataGrid Grid.Row="1" Grid.Column="1" 
+                  AutoGenerateColumns="False" HeadersVisibility="Column" 
+                  HorizontalScrollBarVisibility="Disabled" x:Name="PositionsTable">
+            
+        </DataGrid>
     </Grid>
 </Page>

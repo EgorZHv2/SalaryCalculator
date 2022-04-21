@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SalaryCalculator.Data;
+using SalaryCalculator.Views.Pages;
 
 namespace SalaryCalculator
 {
@@ -24,7 +25,8 @@ namespace SalaryCalculator
         public MainWindow()
         {
             InitializeComponent();
-            
+            PositionsPage p = new PositionsPage();
+            MainFrame.NavigationService.Navigate(p);
         }
 
    }
