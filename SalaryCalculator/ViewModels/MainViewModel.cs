@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel:BaseVm
     {
+
     }
 }
