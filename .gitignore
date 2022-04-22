@@ -361,5 +361,8 @@ MigrationBackup/
 
 # Ignore ToDo folder
 ToDoList
+ToDoList/*
+ToDoList\*
+
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
