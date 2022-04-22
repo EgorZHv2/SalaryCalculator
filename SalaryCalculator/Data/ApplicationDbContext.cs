@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Configuration;
 
 namespace SalaryCalculator.Data
 {
     public partial class ApplicationDbContext : DbContext
     {
+
+
+        private static ApplicationDbContext? context = null;
         public ApplicationDbContext()
         {
         }
@@ -14,6 +18,15 @@ namespace SalaryCalculator.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
+        }
+        public static ApplicationDbContext GetContext() { 
+            if(context == null)
+            {
+                context = new ApplicationDbContext();
+               
+            }
+            return context;
         }
 
         public virtual DbSet<AllowancesAndFine> AllowancesAndFines { get; set; } = null!;
@@ -27,8 +40,7 @@ namespace SalaryCalculator.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=Computer\\Server; Database=SalaryCalc; Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SalaryCalculatorDB;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 

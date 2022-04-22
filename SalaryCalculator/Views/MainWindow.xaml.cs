@@ -25,9 +25,9 @@ namespace SalaryCalculator
         public MainWindow()
         {
             InitializeComponent();
-            PositionsPage p = new PositionsPage();
-            MainFrame.NavigationService.Navigate(p);
+            
         }
 
-   }
+    
+    }
 }

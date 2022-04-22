@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryCalculator", "SalaryCalculator\SalaryCalculator.csproj", "{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryCalculator", "SalaryCalculator\SalaryCalculator.csproj", "{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{190BCDC4-29BF-4163-A440-7F3EE3A0C662}"
+	ProjectSection(SolutionItems) = preProject
+		ToDoList.txt = ToDoList.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
