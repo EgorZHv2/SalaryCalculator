@@ -9,6 +9,7 @@
     <Window.DataContext>
         <viewmodels:MainViewModel/>
     </Window.DataContext>
+    
     <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100"></ColumnDefinition>
@@ -26,6 +27,6 @@
             <Button Style="{StaticResource BtMenu}">Помощь</Button>
             <Button Style="{StaticResource BtMenu}">Выход</Button>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Column="1"></Frame>
+        <Frame x:Name="MainFrame" Grid.Column="1" Content="{Binding Page}"></Frame>
     </Grid>
 </Window>

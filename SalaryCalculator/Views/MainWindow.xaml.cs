@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows;
+using SalaryCalculator.Services;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SalaryCalculator.Data;
 using SalaryCalculator.Views.Pages;
 
 namespace SalaryCalculator
@@ -25,9 +13,9 @@ namespace SalaryCalculator
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.p = MainFrame.NavigationService;
             
-        }
 
-    
+        }
     }
 }
