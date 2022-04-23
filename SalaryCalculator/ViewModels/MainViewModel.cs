@@ -8,25 +8,57 @@ using System.Windows.Controls;
 using SalaryCalculator.Views.Pages;
 using SalaryCalculator.Services;
 using SalaryCalculator.Data;
+using System.Windows.Input;
+using System.Windows;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 
 namespace SalaryCalculator.ViewModels
 {
-    public class MainViewModel:BaseVm
+    public class MainViewModel : BaseVm
     {
-        private Page _page;
 
-        public Page Page
+
+        private Page _pageinframe;
+
+        public Page PageInFrame
         {
-            get { return _page; }
-            set { _page = value; }
+            get { return _pageinframe; }
+            set 
+            { 
+                _pageinframe = value;
+                OnPropertyChanged();
+            }
         }
-
+       
         public MainViewModel()
         {
-            DbInitializer.Initialize(ApplicationDbContext.GetContext());
-            PositionsPage pg = new PositionsPage();
-            Page = pg;
+            DbInitializer.Initialize(ApplicationDbContext.GetContext());                
+        }
+        public ICommand GoToPositionsPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                   PositionsPage pg = new PositionsPage();
+                   PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
+        public ICommand Exit
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    Environment.Exit(1);
+
+
+
+                });
+            }
         }
     }
 }

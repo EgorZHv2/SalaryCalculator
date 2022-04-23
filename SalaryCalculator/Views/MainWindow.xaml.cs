@@ -13,8 +13,7 @@ namespace SalaryCalculator
         public MainWindow()
         {
             InitializeComponent();
-            Navigation.p = MainFrame.NavigationService;
-            
+          
 
         }
     }

@@ -13,17 +13,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SalaryCalculator.Views.Pages;
+using SalaryCalculator.ViewModels;
 
 namespace SalaryCalculator.Services
 {
     public class Navigation
     {
         public static List<Page> Pages = new List<Page>();
-        public static NavigationService p;
 
-        public static void Navigate(Page pg)
+        public static Page Navigate(Page pg)
         {
-            
+            foreach(Page p in Pages)
+            {
+                if(p.GetType() == pg.GetType())
+                {
+
+                    return p;
+                }
+            }
+            Pages.Add(pg);
+            return pg;
+
         }
       
     }

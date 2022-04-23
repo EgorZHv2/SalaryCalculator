@@ -16,7 +16,7 @@
             <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
-            <Button Style="{StaticResource BtMenu}">Должности</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
             <Button Style="{StaticResource BtMenu}">Формы оплаты труда</Button>
             <Button Style="{StaticResource BtMenu}">Нормы труда</Button>
             <Button Style="{StaticResource BtMenu}">Сотрудники</Button>
@@ -25,8 +25,8 @@
             <Button Style="{StaticResource BtMenu}">Надбавки и штрафы</Button>
             <Button Style="{StaticResource BtMenu}">Результаты</Button>
             <Button Style="{StaticResource BtMenu}">Помощь</Button>
-            <Button Style="{StaticResource BtMenu}">Выход</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding Exit}">Выход</Button>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Column="1" Content="{Binding Page}"></Frame>
+        <Frame x:Name="MainFrame" Grid.Column="1" Content="{Binding PageInFrame}"></Frame>
     </Grid>
 </Window>
