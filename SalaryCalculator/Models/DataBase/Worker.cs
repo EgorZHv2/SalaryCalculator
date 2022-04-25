@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SalaryCalculator.Models.DataBase;
+using System;
 using System.Collections.Generic;
 
-namespace SalaryCalculator.Data
-{
+namespace SalaryCalculator.Models.DataBase
+{ 
     public partial class Worker
     {
         public Worker()

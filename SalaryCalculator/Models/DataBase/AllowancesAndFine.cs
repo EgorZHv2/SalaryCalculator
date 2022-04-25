@@ -1,9 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
-namespace SalaryCalculator.Data
+namespace SalaryCalculator.Models.DataBase
 {
     public partial class AllowancesAndFine
+
     {
         public int Id { get; set; }
         public int WorkerId { get; set; }

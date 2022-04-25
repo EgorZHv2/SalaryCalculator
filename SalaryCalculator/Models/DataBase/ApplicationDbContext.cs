@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Configuration;
+using SalaryCalculator.Models.DataBase;
 
-namespace SalaryCalculator.Data
+namespace SalaryCalculator.Models.DataBase
 {
     public partial class ApplicationDbContext : DbContext
     {

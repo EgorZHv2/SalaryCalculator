@@ -7,7 +7,7 @@ using Microsoft.Windows.Input;
 using System.Windows.Controls;
 using SalaryCalculator.Views.Pages;
 using SalaryCalculator.Services;
-using SalaryCalculator.Data;
+using SalaryCalculator.Models.DataBase;
 using System.Windows.Input;
 using System.Windows;
 using System.ComponentModel;

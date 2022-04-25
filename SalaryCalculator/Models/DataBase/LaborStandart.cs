@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
-namespace SalaryCalculator.Data
+namespace SalaryCalculator.Models.DataBase
 {
     public partial class LaborStandart
     {
