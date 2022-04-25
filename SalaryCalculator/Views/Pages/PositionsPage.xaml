@@ -21,8 +21,7 @@
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Должности</TextBlock>
         <DataGrid Grid.Row="1" Grid.Column="1" 
-                  AutoGenerateColumns="False" HeadersVisibility="Column" 
-                  HorizontalScrollBarVisibility="Disabled" x:Name="PositionsTable">
+                  Style="{StaticResource DataTable}" x:Name="PositionsTable">
             
         </DataGrid>
     </Grid>

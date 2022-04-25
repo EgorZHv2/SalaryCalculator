@@ -36,4 +36,10 @@
     <Style x:Key="GridBackGround" TargetType="Grid">
         <Setter Property="Background" Value="#E3FBEB"></Setter>
     </Style>
+
+    <Style x:Key="DataTable" TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+        <Setter Property="HeadersVisibility" Value="Column"></Setter>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+    </Style>
 </ResourceDictionary>
