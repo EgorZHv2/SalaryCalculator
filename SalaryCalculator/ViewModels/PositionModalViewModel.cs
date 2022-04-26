@@ -81,7 +81,7 @@ namespace SalaryCalculator.ViewModels
             set { oversalary = value; OnPropertyChanged(); }
         }
 
-        public ICommand AddPosition
+        public ICommand Submit
         {
             get
             {

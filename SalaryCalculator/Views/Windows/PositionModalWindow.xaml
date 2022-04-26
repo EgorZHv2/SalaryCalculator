@@ -41,6 +41,6 @@
             <TextBlock Style="{StaticResource InputName}">Зарплата за ед. труда сверх нормы </TextBlock>
         <TextBox Style="{StaticResource Input}" Text="{Binding OverSalary}" Grid.Row="1" Grid.Column="2"></TextBox>
         </StackPanel>
-        <Button Grid.Column="1" Command="{Binding AddPosition}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.Row="1"></Button>
+        <Button Grid.Column="1" Command="{Binding Submit}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.Row="1"></Button>
     </Grid>
 </Window>

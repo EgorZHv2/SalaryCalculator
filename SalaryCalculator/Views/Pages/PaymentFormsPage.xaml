@@ -1,4 +1,4 @@
-﻿<Page x:Name="Pg" x:Class="SalaryCalculator.Views.Pages.PositionsPage"
+﻿<Page x:Name="Pg" x:Class="SalaryCalculator.Views.Pages.PaymentFormsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:SalaryCalculator.Views.Pages" xmlns:viewmodels="clr-namespace:SalaryCalculator.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PositionsPage">
+      Title="PaymentFormsPage">
+
     <Page.DataContext>
-        <viewmodels:PositionsViewModel></viewmodels:PositionsViewModel>
+        <viewmodels:PaymentFormsViewModel></viewmodels:PaymentFormsViewModel>
     </Page.DataContext>
     <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
@@ -21,33 +22,31 @@
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Должности</TextBlock>
-        <DataGrid ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" Grid.Row="1" Grid.Column="1" 
+        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Формы оплаты</TextBlock>
+        <DataGrid ItemsSource="{Binding PaymentForms}" SelectedItem="{Binding SelectedForm}" Grid.Row="1" Grid.Column="1" 
                   Style="{StaticResource DataTable}" x:Name="PositionsTable">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0" Visibility="Collapsed" x:Name="IdPar" Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Форма оплаты труда" Binding="{Binding PaymentForm}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Зарплата за единицу труда" Binding="{Binding BasicSalarePerWorkUnit}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Зарплата за единицу труда сверх нормы" Binding="{Binding SalarePerWorkUnitOverTheNorm}"></DataGridTextColumn>
+                
                 <DataGridTemplateColumn Width="0.5*">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate >
                             <Button Command="{Binding ElementName=Pg, Path=DataContext.OpenUpdateDiag}" 
-                                    CommandParameter="{Binding ElementName=Pg,Path=DataContext.SelectedPosition}" >Изменить</Button>
+                                    CommandParameter="{Binding ElementName=Pg,Path=DataContext.SelectedForm}" >Изменить</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="0.5*">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate >
-                            <Button Command="{Binding ElementName=Pg, Path=DataContext.DeletePosition}" 
-                                    CommandParameter="{Binding ElementName=Pg,Path=DataContext.SelectedPosition}" >Удалить</Button>
+                            <Button Command="{Binding ElementName=Pg, Path=DataContext.DeletePaymentForm}" 
+                                    CommandParameter="{Binding ElementName=Pg,Path=DataContext.SelectedForm}" >Удалить</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-            
+
         </DataGrid>
         <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource BtMenu}" Command="{Binding OpenAddDiag}">Добавить</Button>
     </Grid>
