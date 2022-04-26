@@ -41,8 +41,33 @@
         <Setter Property="AutoGenerateColumns" Value="False"></Setter>
         <Setter Property="HeadersVisibility" Value="Column"></Setter>
         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+        <Setter Property="CanUserAddRows" Value="False"></Setter>
+        <Setter Property="IsReadOnly" Value="True"></Setter>
     </Style>
 
+    <Style x:Key="InputList" TargetType="ComboBox">
+        <Setter Property="Width" Value="200"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="10"></Setter>
+    </Style>
+
+    <Style x:Key="InputName" TargetType="TextBlock">
+        <Setter Property="Width" Value="200"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        
+    </Style>
+
+    <Style x:Key="CentralPanel" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
+    
     <Style x:Key="Input" TargetType="TextBox">
         <Setter Property="Width" Value="200"></Setter>
         <Setter Property="FontSize" Value="20"></Setter>

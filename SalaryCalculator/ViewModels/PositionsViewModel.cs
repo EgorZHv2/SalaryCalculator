@@ -6,14 +6,22 @@ using System.Linq;
 using System.Windows.Input;
 using SalaryCalculator.Views.Windows;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
 
 namespace SalaryCalculator.ViewModels
 {
     public class PositionsViewModel : BaseVm
     {
-        private List<Position> positions = new List<Position>();
+        public PositionsViewModel()
+        {
 
-        public List<Position> Positions
+            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+
+        }
+        private List<PositionModel> positions = new List<PositionModel>();
+        private PositionModalWindow ModalWindow;
+        private PositionModalViewModel ModalWindowModel;
+        public List<PositionModel> Positions
         {
             get { return positions; }
             set
@@ -22,35 +30,47 @@ namespace SalaryCalculator.ViewModels
                 OnPropertyChanged();
             }
         }
-        private Position selpos;
-        public Position SelPos
+        private PositionModel selectedposition;
+        public PositionModel SelectedPosition
         {
-            get { return selpos; }
+            get { return selectedposition; }
             set
             {
-                selpos = value;
+                selectedposition = value;
                 OnPropertyChanged();
             }
         }
 
-        private PositionsViewModel()
-        {
-           
-            Positions = ApplicationDbContext.GetContext().Positions.ToList();
-           
-        }
+     
         public ICommand OpenAddDiag
         {
             get
             {
                 return new DelegateCommand((obj) =>
                 {
-                    AddPosition add = new AddPosition();
-                    AddPositionViewModel addmodel = new AddPositionViewModel(this);
-                    add.DataContext = addmodel;
-                    add.Activate();
-                    add.Show();
+                    ModalWindow = new PositionModalWindow();
+                    ModalWindowModel = new PositionModalViewModel(this);
+                    ModalWindow.DataContext = ModalWindowModel;
+                    ModalWindow.Activate();
+                    ModalWindow.Show();
                     
+                });
+            }
+        }
+        public ICommand OpenUpdateDiag
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    PositionModel pm = obj as PositionModel;
+                    ModalWindow = new PositionModalWindow();
+                    Position position = ApplicationDbContext.GetContext().Positions.Find(pm.Id);
+                    ModalWindowModel = new PositionModalViewModel(this,position);
+                    ModalWindow.DataContext = ModalWindowModel;
+                    ModalWindow.Activate();
+                    ModalWindow.Show();
+
                 });
             }
         }
@@ -60,10 +80,17 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    Position ps = obj as Position;
-                    ApplicationDbContext.GetContext().Remove(ps);
-                    ApplicationDbContext.GetContext().SaveChanges();
-                    Positions = ApplicationDbContext.GetContext().Positions.ToList();
+                    try
+                    {
+                        PositionModel pm = obj as PositionModel;
+                        ApplicationDbContext.GetContext().Positions.Remove(ApplicationDbContext.GetContext().Positions.Find(pm.Id));
+                        ApplicationDbContext.GetContext().SaveChanges();
+                        GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+                    }
+                    catch(DbUpdateException)
+                    {
+                        MessageBox.Show("Вы пытаетесь удалить используемую должность");
+                    }
                 });
             }
         }
@@ -71,8 +98,39 @@ namespace SalaryCalculator.ViewModels
         {
             ApplicationDbContext.GetContext().Positions.Add(pos);
             ApplicationDbContext.GetContext().SaveChanges();
-            Positions = ApplicationDbContext.GetContext().Positions.ToList();
+            ModalWindow.Hide();
+            ModalWindow.Close();
+            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
 
+        }
+        public void UpdatePosition(Position pos)
+        {
+            var dbpos = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == pos.Id);
+            dbpos.Name = pos.Name;
+            dbpos.PaymentFormId = pos.PaymentFormId;
+            dbpos.BasicSalarePerWorkUnit = pos.BasicSalarePerWorkUnit;
+            dbpos.SalarePerWorkUnitOverTheNorm = pos.SalarePerWorkUnitOverTheNorm;
+            ApplicationDbContext.GetContext().SaveChanges();
+            ModalWindow.Hide();
+            ModalWindow.Close();
+            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+        }
+        public void GenerateList(List<Position> list)
+        {
+            List<PositionModel> newlist = new List<PositionModel>();
+            foreach(Position pos in list)
+            {
+                newlist.Add(new PositionModel
+                {
+                    Id = pos.Id,
+                    Name = pos.Name,
+                    PaymentForm = ApplicationDbContext.GetContext().PaymentForms.Find(pos.PaymentFormId).Name,
+                    BasicSalarePerWorkUnit = pos.BasicSalarePerWorkUnit,
+                    SalarePerWorkUnitOverTheNorm = pos.SalarePerWorkUnitOverTheNorm
+                });
+            }
+            Positions = newlist;
+            
         }
 
     }

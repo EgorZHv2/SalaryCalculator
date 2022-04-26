@@ -16,8 +16,8 @@
             <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
-            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
             <Button Style="{StaticResource BtMenu}">Формы оплаты труда</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
             <Button Style="{StaticResource BtMenu}">Нормы труда</Button>
             <Button Style="{StaticResource BtMenu}">Сотрудники</Button>
             <Button Style="{StaticResource BtMenu}">Отработанные ед. труда</Button>

@@ -17,9 +17,9 @@ namespace SalaryCalculator.Views.Windows
     /// <summary>
     /// Interaction logic for AddPosition.xaml
     /// </summary>
-    public partial class AddPosition : Window
+    public partial class PositionModalWindow : Window
     {
-        public AddPosition()
+        public PositionModalWindow()
         {
             InitializeComponent();
         }

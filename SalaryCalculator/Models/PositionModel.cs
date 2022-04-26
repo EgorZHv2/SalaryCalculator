@@ -8,6 +8,7 @@ namespace SalaryCalculator.Models
 {
     public class PositionModel
     {
+        public int Id { get; set; }
         public string? Name { get; set; }
         public string? PaymentForm { get; set; }
         public decimal? BasicSalarePerWorkUnit { get; set; }
