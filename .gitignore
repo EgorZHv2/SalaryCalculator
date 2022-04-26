@@ -359,6 +359,11 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Ignore ToDo folder
+ToDoList
+ToDoList/*
+ToDoList\*
+
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ToDoList.txt
