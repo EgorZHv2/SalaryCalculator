@@ -58,6 +58,62 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+        public ICommand GoToLaborStandartsPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    LaborStandartsPage pg = new LaborStandartsPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
+        public ICommand GoToWorkersPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    WorkersPage pg = new WorkersPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
+
+        public ICommand GoToWorkedUnitsPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    WorkedUnitsPage pg = new WorkedUnitsPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
+        public ICommand GoToAllowancesAndFinesPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    AllowancesAndFinesPage pg = new AllowancesAndFinesPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
+        public ICommand GoToResults
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    ResultsPage pg = new ResultsPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
         public ICommand Exit
         {
             get

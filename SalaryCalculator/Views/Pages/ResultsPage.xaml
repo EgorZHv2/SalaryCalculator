@@ -1,0 +1,36 @@
+﻿<Page x:Class="SalaryCalculator.Views.Pages.ResultsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SalaryCalculator.Views.Pages" xmlns:viewmodels="clr-namespace:SalaryCalculator.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ResultsPage">
+    <Page.DataContext>
+        <viewmodels:ResultsViewModel></viewmodels:ResultsViewModel>
+    </Page.DataContext>
+    <Grid Style="{StaticResource GridBackGround}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Отработанные единицы труда</TextBlock>
+        <DataGrid ItemsSource="{Binding ResultsModels}"  Grid.Row="1" Grid.Column="1" 
+                  Style="{StaticResource DataTable}" x:Name="PositionsTable">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0" Visibility="Collapsed" x:Name="IdPar" Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Width="2*" Header="ФИО" Binding="{Binding FIO}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Заработная плата" Binding="{Binding Result}"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource BtMenu}" Visibility="Collapsed" >Экспорт в Excel</Button>
+    </Grid>
+</Page>
