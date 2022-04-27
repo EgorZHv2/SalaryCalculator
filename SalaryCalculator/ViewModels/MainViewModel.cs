@@ -92,6 +92,17 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+        public ICommand GoToAllowancesAndFinesPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    AllowancesAndFinesPage pg = new AllowancesAndFinesPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
         public ICommand Exit
         {
             get
