@@ -18,7 +18,7 @@
         <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPaymentFormsPage}">Формы оплаты труда</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
-            <Button Style="{StaticResource BtMenu}">Нормы труда</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToLaborStandartsPage}">Нормы труда</Button>
             <Button Style="{StaticResource BtMenu}">Сотрудники</Button>
             <Button Style="{StaticResource BtMenu}">Отработанные ед. труда</Button>
             <Button Style="{StaticResource BtMenu}">Цена ед. труда</Button>
