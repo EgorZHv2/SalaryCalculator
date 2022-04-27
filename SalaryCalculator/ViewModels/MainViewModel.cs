@@ -80,6 +80,18 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+
+        public ICommand GoToWorkedUnitsPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    WorkedUnitsPage pg = new WorkedUnitsPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
         public ICommand Exit
         {
             get

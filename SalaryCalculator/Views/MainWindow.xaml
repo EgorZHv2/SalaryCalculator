@@ -20,8 +20,7 @@
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToLaborStandartsPage}">Нормы труда</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkersPage}">Сотрудники</Button>
-            <Button Style="{StaticResource BtMenu}">Отработанные ед. труда</Button>
-            <Button Style="{StaticResource BtMenu}">Цена ед. труда</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkedUnitsPage}">Отработанные ед. труда</Button>
             <Button Style="{StaticResource BtMenu}">Надбавки и штрафы</Button>
             <Button Style="{StaticResource BtMenu}">Результаты</Button>
             <Button Style="{StaticResource BtMenu}">Помощь</Button>
