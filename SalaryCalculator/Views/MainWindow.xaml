@@ -22,8 +22,8 @@
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkersPage}">Сотрудники</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkedUnitsPage}">Отработанные ед. труда</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToAllowancesAndFinesPage}">Надбавки и штрафы</Button>
-            <Button Style="{StaticResource BtMenu}">Результаты</Button>
-            <Button Style="{StaticResource BtMenu}">Помощь</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToResults}">Результаты</Button>
+            <Button Style="{StaticResource BtMenu}" Visibility="Collapsed">Помощь</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding Exit}">Выход</Button>
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1" Content="{Binding PageInFrame}"></Frame>

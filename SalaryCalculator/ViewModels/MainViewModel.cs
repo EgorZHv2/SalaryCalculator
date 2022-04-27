@@ -103,6 +103,17 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+        public ICommand GoToResults
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    ResultsPage pg = new ResultsPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
         public ICommand Exit
         {
             get
