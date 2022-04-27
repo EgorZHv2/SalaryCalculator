@@ -69,6 +69,17 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+        public ICommand GoToWorkersPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    WorkersPage pg = new WorkersPage();
+                    PageInFrame = Navigation.Navigate(pg);
+                });
+            }
+        }
         public ICommand Exit
         {
             get
