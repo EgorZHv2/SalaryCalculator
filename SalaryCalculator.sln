@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{19
 		ToDoList.txt = ToDoList.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1A28B85D-882C-49F6-A122-A8E2B135A6EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{17022788-B180-4166-AF3D-18A7CE2DFB73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +24,16 @@ Global
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17022788-B180-4166-AF3D-18A7CE2DFB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17022788-B180-4166-AF3D-18A7CE2DFB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17022788-B180-4166-AF3D-18A7CE2DFB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17022788-B180-4166-AF3D-18A7CE2DFB73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17022788-B180-4166-AF3D-18A7CE2DFB73} = {1A28B85D-882C-49F6-A122-A8E2B135A6EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C4840EB-8723-4AED-AE7F-2397365F6379}
