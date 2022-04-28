@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{19
 		ToDoList.txt = ToDoList.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1A28B85D-882C-49F6-A122-A8E2B135A6EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "TestProject4\Tests.csproj", "{5DDE74F3-DDAC-4666-9B32-54EA1001AC03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +24,16 @@ Global
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDE74F3-DDAC-4666-9B32-54EA1001AC03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDE74F3-DDAC-4666-9B32-54EA1001AC03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDE74F3-DDAC-4666-9B32-54EA1001AC03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDE74F3-DDAC-4666-9B32-54EA1001AC03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DDE74F3-DDAC-4666-9B32-54EA1001AC03} = {1A28B85D-882C-49F6-A122-A8E2B135A6EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C4840EB-8723-4AED-AE7F-2397365F6379}
