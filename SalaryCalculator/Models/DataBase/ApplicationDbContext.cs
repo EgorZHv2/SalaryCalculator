@@ -31,7 +31,6 @@ namespace SalaryCalculator.Models.DataBase
         }
 
         public virtual DbSet<AllowancesAndFine> AllowancesAndFines { get; set; } = null!;
-        public virtual DbSet<LaborStandart> LaborStandarts { get; set; } = null!;
         public virtual DbSet<PaymentForm> PaymentForms { get; set; } = null!;
         public virtual DbSet<Position> Positions { get; set; } = null!;
         public virtual DbSet<WorkedUnitsOfLabor> WorkedUnitsOfLabors { get; set; } = null!;
@@ -60,14 +59,7 @@ namespace SalaryCalculator.Models.DataBase
                     .HasConstraintName("FK_AllowancesAndFines_Workers");
             });
 
-            modelBuilder.Entity<LaborStandart>(entity =>
-            {
-                entity.HasOne(d => d.Position)
-                    .WithMany(p => p.LaborStandarts)
-                    .HasForeignKey(d => d.PositionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_LaborStandarts_Positions");
-            });
+           
 
             modelBuilder.Entity<PaymentForm>(entity =>
             {
@@ -81,6 +73,8 @@ namespace SalaryCalculator.Models.DataBase
                 entity.Property(e => e.Name).HasMaxLength(50);
 
                 entity.Property(e => e.SalarePerWorkUnitOverTheNorm).HasColumnType("decimal(9, 2)");
+
+               
 
                 entity.HasOne(d => d.PaymentForm)
                     .WithMany(p => p.Positions)

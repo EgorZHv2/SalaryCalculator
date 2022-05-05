@@ -108,6 +108,7 @@ namespace SalaryCalculator.ViewModels
             var dbpos = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == pos.Id);
             dbpos.Name = pos.Name;
             dbpos.PaymentFormId = pos.PaymentFormId;
+            dbpos.StandartInUnits = pos.StandartInUnits;
             dbpos.BasicSalarePerWorkUnit = pos.BasicSalarePerWorkUnit;
             dbpos.SalarePerWorkUnitOverTheNorm = pos.SalarePerWorkUnitOverTheNorm;
             ApplicationDbContext.GetContext().SaveChanges();
@@ -125,6 +126,7 @@ namespace SalaryCalculator.ViewModels
                     Id = pos.Id,
                     Name = pos.Name,
                     PaymentForm = ApplicationDbContext.GetContext().PaymentForms.Find(pos.PaymentFormId).Name,
+                    StandartInUnits = pos.StandartInUnits,
                     BasicSalarePerWorkUnit = pos.BasicSalarePerWorkUnit,
                     SalarePerWorkUnitOverTheNorm = pos.SalarePerWorkUnitOverTheNorm
                 });

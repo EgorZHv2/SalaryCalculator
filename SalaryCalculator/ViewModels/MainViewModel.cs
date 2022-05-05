@@ -58,17 +58,7 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
-        public ICommand GoToLaborStandartsPage
-        {
-            get
-            {
-                return new DelegateCommand((obj) =>
-                {
-                    LaborStandartsPage pg = new LaborStandartsPage();
-                    PageInFrame = Navigation.Navigate(pg);
-                });
-            }
-        }
+       
         public ICommand GoToWorkersPage
         {
             get

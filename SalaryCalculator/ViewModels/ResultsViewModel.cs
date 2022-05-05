@@ -29,17 +29,18 @@ namespace SalaryCalculator.ViewModels
             {
                 decimal? basesalary = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).BasicSalarePerWorkUnit;
                 decimal? oversalary = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).SalarePerWorkUnitOverTheNorm;
-                int standartinunits = ApplicationDbContext.GetContext().LaborStandarts.FirstOrDefault(s => s.PositionId == worker.PositionId).StandartInUnits;
+                int standartinunits = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).StandartInUnits;
                 int? workedunits = ApplicationDbContext.GetContext().WorkedUnitsOfLabors.FirstOrDefault(s => s.WorkerId == worker.Id)?.WorkedUnits;
+                AllowancesAndFine? AaF = ApplicationDbContext.GetContext().AllowancesAndFines.FirstOrDefault(s => s.WorkerId == worker.Id);
 
-                
-                    newlist.Add(new ResultsModel
-                    {
-                        FIO = worker.FirstName + " " + worker.LastName + " " + worker.Patronimyc,
-                        Result = workedunits <= standartinunits ? basesalary * workedunits : basesalary * standartinunits + oversalary * (workedunits - standartinunits)
-                                              
-                    });
-                
+
+                newlist.Add(new ResultsModel
+                {
+                    FIO = worker.FirstName + " " + worker.LastName + " " + worker.Patronimyc,
+                    Result = (workedunits <= standartinunits ? basesalary * workedunits : basesalary * standartinunits + oversalary * (workedunits - standartinunits)) + (AaF != null ? AaF.Bonus: 0) - (AaF != null ? AaF.Fine : 0)
+
+                });
+
             }
 
             resultsModels = newlist;
