@@ -1,7 +1,10 @@
 ﻿using SalaryCalculator.Models;
 using SalaryCalculator.Models.DataBase;
+using SalaryCalculator.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
 namespace SalaryCalculator.ViewModels
 {
@@ -17,9 +20,24 @@ namespace SalaryCalculator.ViewModels
         public List<ResultsModel> ResultsModels
         {
             get { return resultsModels; }
-            set { resultsModels = value; }
+            set 
+            { 
+                resultsModels = value;
+                OnPropertyChanged();
+            }
         }
 
+        public ICommand Refresh 
+        {
+            get
+            {
+                return new DelegateCommand(obj =>
+                {
+                    GenerateList();
+                    MessageBox.Show("Я сработало");
+                });
+            }
+        }
         public void GenerateList()
         {
             List<Worker> workers = ApplicationDbContext.GetContext().Workers.ToList();
@@ -42,8 +60,8 @@ namespace SalaryCalculator.ViewModels
                 });
 
             }
-
-            resultsModels = newlist;
+            ResultsModels = newlist;
+            
         }
     }
 }
