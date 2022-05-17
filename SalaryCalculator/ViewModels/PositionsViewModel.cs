@@ -1,6 +1,7 @@
 ﻿using SalaryCalculator.Models;
 using SalaryCalculator.Models.DataBase;
 using SalaryCalculator.Services;
+using SalaryCalculator.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -10,12 +11,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class PositionsViewModel : BaseVm
+    public class PositionsViewModel : BaseVm, IVMWithDataGrid
     {
         public PositionsViewModel()
         {
 
-            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+            GenerateList();
 
         }
         private List<PositionModel> positions = new List<PositionModel>();
@@ -85,7 +86,7 @@ namespace SalaryCalculator.ViewModels
                         PositionModel pm = obj as PositionModel;
                         ApplicationDbContext.GetContext().Positions.Remove(ApplicationDbContext.GetContext().Positions.Find(pm.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
-                        GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+                        GenerateList();
                     }
                     catch(DbUpdateException)
                     {
@@ -100,7 +101,7 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+            GenerateList();
 
         }
         public void UpdatePosition(Position pos)
@@ -114,12 +115,13 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().Positions.ToList());
+            GenerateList();
         }
-        public void GenerateList(List<Position> list)
+        public void GenerateList()
         {
+            List<Position> bdlist = ApplicationDbContext.GetContext().Positions.ToList();
             List<PositionModel> newlist = new List<PositionModel>();
-            foreach(Position pos in list)
+            foreach(Position pos in bdlist)
             {
                 newlist.Add(new PositionModel
                 {

@@ -41,13 +41,12 @@ namespace SalaryCalculator.ViewModels
         public void GenerateList()
         {
             List<Worker> workers = ApplicationDbContext.GetContext().Workers.ToList();
-
             List<ResultsModel> newlist = new List<ResultsModel>();
             foreach (Worker worker in workers)
             {
                 decimal? basesalary = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).BasicSalarePerWorkUnit;
                 decimal? oversalary = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).SalarePerWorkUnitOverTheNorm;
-                int standartinunits = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).StandartInUnits;
+                int? standartinunits = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).StandartInUnits;
                 int? workedunits = ApplicationDbContext.GetContext().WorkedUnitsOfLabors.FirstOrDefault(s => s.WorkerId == worker.Id)?.WorkedUnits;
                 AllowancesAndFine? AaF = ApplicationDbContext.GetContext().AllowancesAndFines.FirstOrDefault(s => s.WorkerId == worker.Id);
 

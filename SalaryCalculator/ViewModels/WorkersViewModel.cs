@@ -7,15 +7,16 @@ using System.Windows.Input;
 using SalaryCalculator.Views.Windows;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class WorkersViewModel:BaseVm
+    public class WorkersViewModel:BaseVm,IVMWithDataGrid
     {
         public WorkersViewModel()
         {
 
-            GenerateList(ApplicationDbContext.GetContext().Workers.ToList());
+            GenerateList();
 
         }
         private List<WorkersModel> workers = new List<WorkersModel>();
@@ -85,7 +86,7 @@ namespace SalaryCalculator.ViewModels
                         WorkersModel wm = obj as WorkersModel;
                         ApplicationDbContext.GetContext().Workers.Remove(ApplicationDbContext.GetContext().Workers.Find(wm.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
-                        GenerateList(ApplicationDbContext.GetContext().Workers.ToList());
+                        GenerateList();
                     }
                     catch (DbUpdateException)
                     {
@@ -100,7 +101,7 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().Workers.ToList());
+            GenerateList();
 
         }
         public void UpdateWorker(Worker worker)
@@ -114,12 +115,13 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().Workers.ToList());
+            GenerateList();
         }
-        public void GenerateList(List<Worker> list)
+        public void GenerateList()
         {
+            List<Worker> bdlist = ApplicationDbContext.GetContext().Workers.ToList();
             List<WorkersModel> newlist = new List<WorkersModel>();
-            foreach (Worker worker in list)
+            foreach (Worker worker in bdlist)
             {
                 newlist.Add(new WorkersModel
                 {

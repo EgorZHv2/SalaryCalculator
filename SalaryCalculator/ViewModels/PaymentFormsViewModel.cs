@@ -7,16 +7,17 @@ using System.Windows.Input;
 using SalaryCalculator.Views.Windows;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class PaymentFormsViewModel : BaseVm
+    public class PaymentFormsViewModel : BaseVm, IVMWithDataGrid
     {
 
         public PaymentFormsViewModel()
         {
-
-            GenerateList(ApplicationDbContext.GetContext().PaymentForms.ToList());
+                
+            GenerateList();
 
         }
 
@@ -84,7 +85,7 @@ namespace SalaryCalculator.ViewModels
                         PaymentForm pf = obj as PaymentForm;
                         ApplicationDbContext.GetContext().PaymentForms.Remove(ApplicationDbContext.GetContext().PaymentForms.Find(pf.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
-                        GenerateList(ApplicationDbContext.GetContext().PaymentForms.ToList());
+                        GenerateList();
                     }
                     catch (DbUpdateException)
                     {
@@ -99,7 +100,7 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().PaymentForms.ToList());
+            GenerateList();
         }
         public void UpdatePaymentForm(PaymentForm paymentForm)
         {
@@ -108,11 +109,12 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().PaymentForms.ToList());
+            GenerateList();
         }
-        public void GenerateList(List<PaymentForm> list)
+        public void GenerateList()
         {
-            PaymentForms = list;
+            List<PaymentForm> bdlist = ApplicationDbContext.GetContext().PaymentForms.ToList();
+            PaymentForms = bdlist;
         }
     }
 }
