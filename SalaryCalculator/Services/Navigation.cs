@@ -14,24 +14,29 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SalaryCalculator.Views.Pages;
 using SalaryCalculator.ViewModels;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.Services
 {
     public class Navigation
     {
         public static List<Page> Pages = new List<Page>();
-
+        
         public static Page Navigate(Page pg)
         {
-            foreach(Page p in Pages)
+            IVMWithDataGrid pageVM;
+            foreach (Page p in Pages)
             {
                 if(p.GetType() == pg.GetType())
                 {
-
+                    pageVM = p.DataContext as IVMWithDataGrid;
+                    pageVM.GenerateList();
                     return p;
                 }
             }
             Pages.Add(pg);
+            pageVM = pg.DataContext as IVMWithDataGrid;
+            pageVM.GenerateList();
             return pg;
 
         }

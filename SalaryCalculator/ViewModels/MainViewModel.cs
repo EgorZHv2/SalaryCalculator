@@ -103,9 +103,7 @@ namespace SalaryCalculator.ViewModels
                 {
                     ResultsPage pg = new ResultsPage();
                     PageInFrame = Navigation.Navigate(pg);
-                    ResultsViewModel resultsViewModel = PageInFrame.DataContext as ResultsViewModel;
-                    resultsViewModel.GenerateList();
-                    
+                                       
                 });
             }
         }

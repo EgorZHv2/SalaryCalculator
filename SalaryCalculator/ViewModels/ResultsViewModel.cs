@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class ResultsViewModel : BaseVm
+    public class ResultsViewModel : BaseVm,IVMWithDataGrid
     {
         public ResultsViewModel()
         {
