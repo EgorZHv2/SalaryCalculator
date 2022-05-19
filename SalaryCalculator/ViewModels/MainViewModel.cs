@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Windows.Input;
 using System.Windows.Controls;
+using SalaryCalculator.ViewModels;
 using SalaryCalculator.Views.Pages;
 using SalaryCalculator.Services;
 using SalaryCalculator.Models.DataBase;
@@ -16,6 +17,7 @@ using System.Runtime.CompilerServices;
 
 namespace SalaryCalculator.ViewModels
 {
+    
     public class MainViewModel : BaseVm
     {
 
@@ -58,17 +60,7 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
-        public ICommand GoToLaborStandartsPage
-        {
-            get
-            {
-                return new DelegateCommand((obj) =>
-                {
-                    LaborStandartsPage pg = new LaborStandartsPage();
-                    PageInFrame = Navigation.Navigate(pg);
-                });
-            }
-        }
+       
         public ICommand GoToWorkersPage
         {
             get
@@ -111,6 +103,7 @@ namespace SalaryCalculator.ViewModels
                 {
                     ResultsPage pg = new ResultsPage();
                     PageInFrame = Navigation.Navigate(pg);
+                                       
                 });
             }
         }

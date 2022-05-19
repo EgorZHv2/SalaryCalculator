@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator.Views.Windows" xmlns:viewmodels="clr-namespace:SalaryCalculator.ViewModels"
         mc:Ignorable="d"
-        Title="AddPosition" Height="300" Width="600">
+        Title="AddPosition" Height="300" Width="800">
   
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -32,6 +32,11 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+            
+        </StackPanel>
+        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="1">
+            <TextBlock Style="{StaticResource InputName}">Норма в ед. труда</TextBlock>
+            <TextBox Style="{StaticResource Input}" Text="{Binding StandartInUnits}" Grid.Row="1" Grid.Column="0"></TextBox>
         </StackPanel>
         <StackPanel Style="{StaticResource CentralPanel}" Grid.Row="1">
         <TextBlock Style="{StaticResource InputName}">Зарплата за ед. труда</TextBlock>

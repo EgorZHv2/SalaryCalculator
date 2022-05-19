@@ -7,14 +7,15 @@ using System.Windows.Input;
 using SalaryCalculator.Views.Windows;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class AllowancesAndFinesVM:BaseVm
+    public class AllowancesAndFinesVM:BaseVm, IVMWithDataGrid
     {
         public AllowancesAndFinesVM()
         {
-            GenerateList(ApplicationDbContext.GetContext().AllowancesAndFines.ToList());
+            GenerateList();
         }
 
         private List<AllowancesAndFinesModel> allowancesAndFines = new List<AllowancesAndFinesModel>();
@@ -86,7 +87,7 @@ namespace SalaryCalculator.ViewModels
                         AllowancesAndFinesModel AaFModel = obj as AllowancesAndFinesModel;
                         ApplicationDbContext.GetContext().AllowancesAndFines.Remove(ApplicationDbContext.GetContext().AllowancesAndFines.Find(AaFModel.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
-                        GenerateList(ApplicationDbContext.GetContext().AllowancesAndFines.ToList());
+                        GenerateList();
                     }
                     catch (DbUpdateException)
                     {
@@ -102,7 +103,7 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().AllowancesAndFines.ToList());
+            GenerateList();
         }
 
         public void UpdateAaF(AllowancesAndFine AaF)
@@ -114,13 +115,14 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().AllowancesAndFines.ToList());
+            GenerateList();
         }
 
-        public void GenerateList(List<AllowancesAndFine> list)
+        public void GenerateList()
         {
+            List<AllowancesAndFine> bdlist = ApplicationDbContext.GetContext().AllowancesAndFines.ToList();
             List<AllowancesAndFinesModel> newlist = new List<AllowancesAndFinesModel>();
-            foreach (AllowancesAndFine AaF in list)
+            foreach (AllowancesAndFine AaF in bdlist)
             {
                 Worker wk = ApplicationDbContext.GetContext().Workers.Find(AaF.WorkerId);
                 newlist.Add(new AllowancesAndFinesModel

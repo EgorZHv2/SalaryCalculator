@@ -7,14 +7,15 @@ using System.Windows.Input;
 using SalaryCalculator.Views.Windows;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using SalaryCalculator.Interfaces;
 
 namespace SalaryCalculator.ViewModels
 {
-    public class WorkedUnitsViewModel : BaseVm
+    public class WorkedUnitsViewModel : BaseVm,IVMWithDataGrid
     {
         public WorkedUnitsViewModel()
         {
-            GenerateList(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.ToList());
+            GenerateList();
         }
 
         private List<WorkedUnitsModel> workedUnits = new List<WorkedUnitsModel>();
@@ -86,7 +87,7 @@ namespace SalaryCalculator.ViewModels
                         WorkedUnitsModel wum = obj as WorkedUnitsModel;
                         ApplicationDbContext.GetContext().WorkedUnitsOfLabors.Remove(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.Find(wum.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
-                        GenerateList(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.ToList());
+                        GenerateList();
                     }
                     catch (DbUpdateException)
                     {
@@ -102,7 +103,7 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.ToList());
+            GenerateList();
         }
 
         public void UpdatePosition(WorkedUnitsOfLabor wuos)
@@ -113,13 +114,14 @@ namespace SalaryCalculator.ViewModels
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
-            GenerateList(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.ToList());
+            GenerateList();
         }
 
-        public void GenerateList(List<WorkedUnitsOfLabor> list)
+        public void GenerateList()
         {
+            List<WorkedUnitsOfLabor> bdlist = ApplicationDbContext.GetContext().WorkedUnitsOfLabors.ToList();
             List<WorkedUnitsModel> newlist = new List<WorkedUnitsModel>();
-            foreach (WorkedUnitsOfLabor wuol in list)
+            foreach (WorkedUnitsOfLabor wuol in bdlist)
             {
                 Worker wk = ApplicationDbContext.GetContext().Workers.Find(wuol.WorkerId);
                 newlist.Add(new WorkedUnitsModel

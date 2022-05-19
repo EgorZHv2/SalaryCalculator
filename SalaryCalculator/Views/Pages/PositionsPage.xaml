@@ -28,6 +28,7 @@
                 <DataGridTextColumn Width="0" Visibility="Collapsed" x:Name="IdPar" Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Форма оплаты труда" Binding="{Binding PaymentForm}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Норма ед. труда" Binding="{Binding StandartInUnits}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Зарплата за единицу труда" Binding="{Binding BasicSalarePerWorkUnit}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Зарплата за единицу труда сверх нормы" Binding="{Binding SalarePerWorkUnitOverTheNorm}"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="0.5*">

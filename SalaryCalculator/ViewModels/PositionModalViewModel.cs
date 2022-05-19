@@ -40,6 +40,7 @@ namespace SalaryCalculator.ViewModels
             PaymentForms = ApplicationDbContext.GetContext().PaymentForms.ToList();
             Name = position.Name;
             PayementForm = ApplicationDbContext.GetContext().PaymentForms.Find(position.PaymentFormId);
+            StandartInUnits = position.StandartInUnits;
             Salary = position.BasicSalarePerWorkUnit;
             OverSalary = position.SalarePerWorkUnitOverTheNorm;
            
@@ -53,6 +54,17 @@ namespace SalaryCalculator.ViewModels
             set
             {
                 name = value;
+                OnPropertyChanged();
+            }
+        }
+        private int standartInUnits;
+
+        public int StandartInUnits
+        {
+            get { return standartInUnits; }
+            set
+            {
+                standartInUnits = value;
                 OnPropertyChanged();
             }
         }
@@ -93,6 +105,7 @@ namespace SalaryCalculator.ViewModels
                         {
                             Name = Name,
                             PaymentFormId = PayementForm.Id,
+                            StandartInUnits = StandartInUnits,
                             BasicSalarePerWorkUnit = Salary,
                             SalarePerWorkUnitOverTheNorm = OverSalary
                         };
@@ -106,6 +119,7 @@ namespace SalaryCalculator.ViewModels
                             Id = position.Id,
                             Name = Name,
                             PaymentFormId = PayementForm.Id,
+                            StandartInUnits = StandartInUnits,
                             BasicSalarePerWorkUnit = Salary,
                             SalarePerWorkUnitOverTheNorm = OverSalary
                         };
