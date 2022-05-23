@@ -5,11 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryCalculator", "SalaryCalculator\SalaryCalculator.csproj", "{F33BF9A4-7A06-4B35-B265-8EB50E6E9FC4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{190BCDC4-29BF-4163-A440-7F3EE3A0C662}"
-	ProjectSection(SolutionItems) = preProject
-		ToDoList.txt = ToDoList.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1A28B85D-882C-49F6-A122-A8E2B135A6EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{17022788-B180-4166-AF3D-18A7CE2DFB73}"

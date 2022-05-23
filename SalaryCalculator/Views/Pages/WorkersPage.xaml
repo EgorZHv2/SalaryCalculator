@@ -21,7 +21,7 @@
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Рабочие</TextBlock>
+        <TextBlock Style="{StaticResource PageName}" Grid.Column="1">Сотрудники</TextBlock>
         <DataGrid ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" Grid.Row="1" Grid.Column="1" 
                   Style="{StaticResource DataTable}" x:Name="PositionsTable">
             <DataGrid.Columns>

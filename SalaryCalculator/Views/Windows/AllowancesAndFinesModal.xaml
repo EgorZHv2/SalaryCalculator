@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryCalculator.Views.Windows"
         mc:Ignorable="d"
         Title="AllowancesAndFinesModal" Height="450" Width="800">
-    <Grid>
+    <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AddPosition" Height="300" Width="800">
   
-    <Grid>
+    <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>

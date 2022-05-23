@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryCalculator.Views.Windows"
         mc:Ignorable="d"
         Title="PaymentFormsModalWindow" Height="450" Width="600">
-    <Grid>
+    <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="0.5*"></ColumnDefinition>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
