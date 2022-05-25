@@ -56,17 +56,17 @@ namespace SalaryCalculator.ViewModels
 
 
 
-        private decimal bonus;
+        private decimal? bonus;
 
-        public decimal Bonus
+        public decimal? Bonus
         {
             get { return bonus; }
             set { bonus = value; OnPropertyChanged(); }
         }
 
-        private decimal fine;
+        private decimal? fine;
 
-        public decimal Fine
+        public decimal? Fine
         {
             get { return fine; }
             set { fine = value; OnPropertyChanged(); }
@@ -80,14 +80,18 @@ namespace SalaryCalculator.ViewModels
                 {
                     if (_AaF == null)
                     {
-                        AllowancesAndFine AllAndFine = new AllowancesAndFine
-                        {
-                            WorkerId = Worker.Id,
-                            Bonus = Bonus,
-                            Fine = Fine
-                        };
+                       
+                            AllowancesAndFine AllAndFine = new AllowancesAndFine
+                            {
+                                WorkerId = Worker.Id,
+                                Bonus = Bonus == null ? 0: Bonus,
+                                Fine = Fine == null ? 0 : Fine
+                            };
+                            parentVm.AddAaF(AllAndFine);
+                        
+                        
 
-                        parentVm.AddAaF(AllAndFine);
+                       
                     }
                     else
                     {

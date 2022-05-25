@@ -57,9 +57,9 @@ namespace SalaryCalculator.ViewModels
                 OnPropertyChanged();
             }
         }
-        private int standartInUnits;
+        private int? standartInUnits;
 
-        public int StandartInUnits
+        public int? StandartInUnits
         {
             get { return standartInUnits; }
             set

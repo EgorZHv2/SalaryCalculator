@@ -82,9 +82,9 @@ namespace SalaryCalculator.ViewModels
                 OnPropertyChanged();
             }
         }
-        private DateTime hiringdate;
+        private DateTime? hiringdate;
 
-        public DateTime HiringDate
+        public DateTime? HiringDate
         {
             get { return hiringdate; }
             set 

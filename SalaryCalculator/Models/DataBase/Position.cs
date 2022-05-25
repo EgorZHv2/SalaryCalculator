@@ -15,7 +15,7 @@ namespace SalaryCalculator.Models.DataBase
         public string Name { get; set; } = null!;
         public int PaymentFormId { get; set; }
 
-        public int StandartInUnits { get; set; }
+        public int? StandartInUnits { get; set; }
         public decimal? BasicSalarePerWorkUnit { get; set; }
         public decimal? SalarePerWorkUnitOverTheNorm { get; set; }
 
