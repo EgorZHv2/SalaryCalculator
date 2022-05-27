@@ -8,11 +8,12 @@
         Title="WorkersModalWindow" Height="450" Width="800">
     <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition ></ColumnDefinition>
+           
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
 
@@ -26,13 +27,13 @@
             <TextBlock Style="{StaticResource InputName}">Фамилия</TextBlock>
             <TextBox Style="{StaticResource Input}" Text="{Binding LastName}" Grid.Row="0" Grid.Column="0"></TextBox>
         </StackPanel>
-        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="2">
+        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="0" Grid.Row="1">
             <TextBlock Style="{StaticResource InputName}">Отчество</TextBlock>
-            <TextBox Style="{StaticResource Input}" Text="{Binding Patronymic}" Grid.Row="1" Grid.Column="0"></TextBox>
+            <TextBox Style="{StaticResource Input}" Text="{Binding Patronymic}" ></TextBox>
         </StackPanel>
-        <StackPanel Style="{StaticResource CentralPanel}" Grid.Row="1">
+        <StackPanel Style="{StaticResource CentralPanel}" Grid.Row="1" Grid.Column="1">
             <TextBlock Style="{StaticResource InputName}">Должность</TextBlock>
-            <ComboBox Style="{StaticResource InputList}" Grid.Column="2" ItemsSource="{Binding Positions}" SelectedItem="{Binding Position}">
+            <ComboBox Style="{StaticResource InputList}"  ItemsSource="{Binding Positions}" SelectedItem="{Binding Position}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"></TextBlock>
@@ -42,9 +43,8 @@
         </StackPanel>
         
         <StackPanel Grid.Column="2" Grid.Row="1" Style="{StaticResource CentralPanel}">
-            <TextBlock Style="{StaticResource InputName}">Дата найма</TextBlock>
-            <TextBox Style="{StaticResource Input}" Text="{Binding HiringDate}" Grid.Row="1" Grid.Column="2"></TextBox>
+           
         </StackPanel>
-        <Button Grid.Column="1" Command="{Binding Submit}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.Row="1"></Button>
+        <Button Grid.Column="0" MaxWidth="300"  Command="{Binding Submit}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.ColumnSpan="2" Grid.Row="2"></Button>
     </Grid>
 </Window>

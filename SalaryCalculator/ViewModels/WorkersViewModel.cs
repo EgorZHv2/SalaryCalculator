@@ -111,7 +111,7 @@ namespace SalaryCalculator.ViewModels
             dbpos.LastName = worker.LastName;
             dbpos.Patronimyc = worker.Patronimyc;
             dbpos.PositionId = worker.PositionId;
-            dbpos.HiringDate = worker.HiringDate;
+            
             ApplicationDbContext.GetContext().SaveChanges();
             ModalWindow.Hide();
             ModalWindow.Close();
@@ -130,7 +130,7 @@ namespace SalaryCalculator.ViewModels
                     LastName = worker.LastName,
                     Patronymic = worker.Patronimyc,
                     Position = ApplicationDbContext.GetContext().Positions.Find(worker.PositionId).Name,
-                    HiringDate = worker.HiringDate
+                    
                 });
             }
             Workers = newlist;

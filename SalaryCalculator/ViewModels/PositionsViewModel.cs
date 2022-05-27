@@ -19,6 +19,7 @@ namespace SalaryCalculator.ViewModels
             GenerateList();
 
         }
+        
         private List<PositionModel> positions = new List<PositionModel>();
         private PositionModalWindow ModalWindow;
         private PositionModalViewModel ModalWindowModel;

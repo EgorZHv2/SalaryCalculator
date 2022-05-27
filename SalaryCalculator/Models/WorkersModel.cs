@@ -13,6 +13,6 @@ namespace SalaryCalculator.Models
         public string? LastName { get; set; }
         public string? Patronymic { get; set; }
         public string? Position { get; set; }
-        public DateTime? HiringDate { get; set; }
+       
     }
 }

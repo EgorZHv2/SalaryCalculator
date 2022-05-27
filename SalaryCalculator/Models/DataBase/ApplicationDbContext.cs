@@ -98,8 +98,7 @@ namespace SalaryCalculator.Models.DataBase
             {
                 entity.Property(e => e.FirstName).HasMaxLength(50);
 
-                entity.Property(e => e.HiringDate).HasColumnType("date");
-
+                
                 entity.Property(e => e.LastName).HasMaxLength(50);
 
                 entity.Property(e => e.Patronimyc).HasMaxLength(50);

@@ -43,7 +43,7 @@ namespace SalaryCalculator.ViewModels
             LastName = worker.LastName;
             Patronymic = worker.Patronimyc;
             Position = ApplicationDbContext.GetContext().Positions.FirstOrDefault(pos => pos.Id == worker.PositionId);
-            HiringDate = worker.HiringDate;
+           
 
         }
 
@@ -82,17 +82,7 @@ namespace SalaryCalculator.ViewModels
                 OnPropertyChanged();
             }
         }
-        private DateTime? hiringdate;
-
-        public DateTime? HiringDate
-        {
-            get { return hiringdate; }
-            set 
-            { 
-                hiringdate = value; 
-                OnPropertyChanged(); 
-            }
-        }
+       
 
         private Position position;
 
@@ -121,7 +111,7 @@ namespace SalaryCalculator.ViewModels
                             LastName = LastName,
                             Patronimyc = Patronymic,
                             PositionId = Position.Id,
-                            HiringDate = HiringDate
+                           
                         };
 
                         parentVm.AddWorker(worker);
@@ -135,7 +125,7 @@ namespace SalaryCalculator.ViewModels
                             LastName = LastName,
                             Patronimyc = Patronymic,
                             PositionId = Position.Id,
-                            HiringDate = HiringDate
+                           
                         };
 
                         

@@ -30,7 +30,7 @@
                 <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Должность" Binding="{Binding Position}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Дата найма" Binding="{Binding HiringDate}"></DataGridTextColumn>
+               
                 <DataGridTemplateColumn Width="0.5*">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate >

@@ -17,7 +17,7 @@ namespace SalaryCalculator.Models.DataBase
         public string LastName { get; set; } = null!;
         public string? Patronimyc { get; set; }
         public int PositionId { get; set; }
-        public DateTime? HiringDate { get; set; }
+        
 
         public virtual Position Position { get; set; } = null!;
         public virtual ICollection<AllowancesAndFine> AllowancesAndFines { get; set; }
