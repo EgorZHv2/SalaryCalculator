@@ -1,11 +1,11 @@
-﻿<Window WindowStartupLocation="CenterScreen" x:Class="SalaryCalculator.Views.Windows.PositionModalWindow"
+﻿<Window  x:Class="SalaryCalculator.Views.Windows.PositionModalWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator.Views.Windows" xmlns:viewmodels="clr-namespace:SalaryCalculator.ViewModels"
         mc:Ignorable="d"
-        Title="AddPosition" Height="300" Width="800">
+        Title="Добавление/изменение должностей" Height="500" Width="800" WindowStartupLocation="CenterScreen" Icon="/Resources/Assets/Icon.png">
   
     <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
@@ -14,6 +14,7 @@
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
 
@@ -38,6 +39,7 @@
             <TextBlock Style="{StaticResource InputName}">Норма в ед. труда</TextBlock>
             <TextBox Style="{StaticResource Input}" Text="{Binding StandartInUnits}" Grid.Row="1" Grid.Column="0"></TextBox>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3"   HorizontalAlignment="Center">
         <StackPanel Style="{StaticResource CentralPanel}" Grid.Row="1">
         <TextBlock Style="{StaticResource InputName}">Зарплата за ед. труда</TextBlock>
         <TextBox Style="{StaticResource Input}" Text="{Binding Salary}" Grid.Row="1" Grid.Column="0"></TextBox>
@@ -46,6 +48,7 @@
             <TextBlock Style="{StaticResource InputName}">Зарплата за ед. труда сверх нормы </TextBlock>
         <TextBox Style="{StaticResource Input}" Text="{Binding OverSalary}" Grid.Row="1" Grid.Column="2"></TextBox>
         </StackPanel>
-        <Button Grid.Column="1" Command="{Binding Submit}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.Row="1"></Button>
+        </StackPanel>
+        <Button Grid.Column="1" Command="{Binding Submit}" Style="{StaticResource BtMenu}" Content="{Binding BtContent}" Grid.Row="2"></Button>
     </Grid>
 </Window>

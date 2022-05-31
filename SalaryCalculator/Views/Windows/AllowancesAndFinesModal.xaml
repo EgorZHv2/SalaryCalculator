@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator.Views.Windows"
         mc:Ignorable="d"
-        Title="AllowancesAndFinesModal" Height="450" Width="800">
+        Title="Добавление/изменение штрафов и премий" Height="450" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/Assets/Icon.png">
     <Grid Style="{StaticResource GridBackGround}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,17 +20,19 @@
 
 
         </Grid.RowDefinitions>
-        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="0" Grid.Row="1">
+        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Style="{StaticResource CentralPanel}" >
             <TextBlock Style="{StaticResource InputName}">Премия</TextBlock>
             <TextBox Style="{StaticResource Input}" Text="{Binding Bonus}" Grid.Row="0" Grid.Column="0"></TextBox>
         </StackPanel>
-        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="2" Grid.Row="1">
+        <StackPanel Style="{StaticResource CentralPanel}" >
             <TextBlock Style="{StaticResource InputName}">Штраф</TextBlock>
             <TextBox Style="{StaticResource Input}" Text="{Binding Fine}" Grid.Row="0" Grid.Column="0"></TextBox>
         </StackPanel>
-        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="0" Grid.ColumnSpan="3">
+        </StackPanel>
+        <StackPanel Style="{StaticResource CentralPanel}" Grid.Column="1" >
             <TextBlock Style="{StaticResource InputName}">Сотрудник</TextBlock>
-            <ComboBox Style="{StaticResource FioList}" Grid.Column="2" ItemsSource="{Binding Workers}" SelectedItem="{Binding Worker}">
+            <ComboBox Style="{StaticResource FioList}" MinWidth="270" Grid.Column="2" ItemsSource="{Binding Workers}" SelectedItem="{Binding Worker}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

@@ -53,7 +53,7 @@
         <Setter Property="Margin" Value="10"></Setter>
     </Style>
     <Style x:Key="FioList" TargetType="ComboBox">
-        <Setter Property="Width" Value="600"></Setter>
+        <Setter Property="MaxWidth" Value="600"></Setter>
         <Setter Property="FontSize" Value="20"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>

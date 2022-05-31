@@ -3,6 +3,7 @@ using SalaryCalculator.Models.DataBase;
 using SalaryCalculator.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SalaryCalculator.ViewModels
@@ -78,32 +79,36 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    if (_AaF == null)
+                    if (Worker == null)
                     {
-                       
-                            AllowancesAndFine AllAndFine = new AllowancesAndFine
-                            {
-                                WorkerId = Worker.Id,
-                                Bonus = Bonus == null ? 0: Bonus,
-                                Fine = Fine == null ? 0 : Fine
-                            };
-                            parentVm.AddAaF(AllAndFine);
-                        
-                        
-
-                       
+                        MessageBox.Show("Вы не выбрали сотрудника");
                     }
                     else
                     {
-                        AllowancesAndFine AllAndFine = new AllowancesAndFine
+                        if (_AaF == null)
                         {
-                            Id = _AaF.Id,
-                            WorkerId = Worker.Id,
-                            Bonus = Bonus,
-                            Fine = Fine
-                        };
 
-                        parentVm.UpdateAaF(AllAndFine);
+                            AllowancesAndFine AllAndFine = new AllowancesAndFine
+                            {
+                                WorkerId = Worker.Id,
+                                Bonus = Bonus == null ? 0 : Bonus,
+                                Fine = Fine == null ? 0 : Fine
+                            };
+                            parentVm.AddAaF(AllAndFine);
+
+                        }
+                        else
+                        {
+                            AllowancesAndFine AllAndFine = new AllowancesAndFine
+                            {
+                                Id = _AaF.Id,
+                                WorkerId = Worker.Id,
+                                Bonus = Bonus,
+                                Fine = Fine
+                            };
+
+                            parentVm.UpdateAaF(AllAndFine);
+                        }
                     }
 
                 });

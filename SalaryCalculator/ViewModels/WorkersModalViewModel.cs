@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using System;
+using System.Windows;
 
 namespace SalaryCalculator.ViewModels
 {
@@ -103,33 +104,40 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    if (_worker == null)
+                    if (Position == null)
                     {
-                        Worker worker = new Worker()
-                        {
-                            FirstName = FirstName,
-                            LastName = LastName,
-                            Patronimyc = Patronymic,
-                            PositionId = Position.Id,
-                           
-                        };
-
-                        parentVm.AddWorker(worker);
+                        MessageBox.Show("Вы не выбрали должность");
                     }
                     else
                     {
-                        Worker worker = new Worker()
+                        if (_worker == null)
                         {
-                            Id = _worker.Id,
-                            FirstName = FirstName,
-                            LastName = LastName,
-                            Patronimyc = Patronymic,
-                            PositionId = Position.Id,
-                           
-                        };
+                            Worker worker = new Worker()
+                            {
+                                FirstName = FirstName,
+                                LastName = LastName,
+                                Patronimyc = Patronymic,
+                                PositionId = Position.Id,
 
-                        
-                        parentVm.UpdateWorker(worker);
+                            };
+
+                            parentVm.AddWorker(worker);
+                        }
+                        else
+                        {
+                            Worker worker = new Worker()
+                            {
+                                Id = _worker.Id,
+                                FirstName = FirstName,
+                                LastName = LastName,
+                                Patronimyc = Patronymic,
+                                PositionId = Position.Id,
+
+                            };
+
+
+                            parentVm.UpdateWorker(worker);
+                        }
                     }
 
                 });

@@ -3,6 +3,7 @@ using SalaryCalculator.Models.DataBase;
 using SalaryCalculator.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SalaryCalculator.ViewModels
@@ -99,31 +100,38 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    if (position == null)
+                    if (PayementForm == null)
                     {
-                        Position pos = new Position()
-                        {
-                            Name = Name,
-                            PaymentFormId = PayementForm.Id,
-                            StandartInUnits = StandartInUnits,
-                            BasicSalarePerWorkUnit = Salary,
-                            SalarePerWorkUnitOverTheNorm = OverSalary
-                        };
-
-                        parentVm.AddPosition(pos);
+                        MessageBox.Show("Вы не выбрали форму оплаты труда");
                     }
                     else
                     {
-                        Position pos = new Position()
+                        if (position == null)
                         {
-                            Id = position.Id,
-                            Name = Name,
-                            PaymentFormId = PayementForm.Id,
-                            StandartInUnits = StandartInUnits,
-                            BasicSalarePerWorkUnit = Salary,
-                            SalarePerWorkUnitOverTheNorm = OverSalary
-                        };
-                        parentVm.UpdatePosition(pos);
+                            Position pos = new Position()
+                            {
+                                Name = Name,
+                                PaymentFormId = PayementForm.Id,
+                                StandartInUnits = StandartInUnits,
+                                BasicSalarePerWorkUnit = Salary,
+                                SalarePerWorkUnitOverTheNorm = OverSalary
+                            };
+
+                            parentVm.AddPosition(pos);
+                        }
+                        else
+                        {
+                            Position pos = new Position()
+                            {
+                                Id = position.Id,
+                                Name = Name,
+                                PaymentFormId = PayementForm.Id,
+                                StandartInUnits = StandartInUnits,
+                                BasicSalarePerWorkUnit = Salary,
+                                SalarePerWorkUnitOverTheNorm = OverSalary
+                            };
+                            parentVm.UpdatePosition(pos);
+                        }
                     }
 
                 });

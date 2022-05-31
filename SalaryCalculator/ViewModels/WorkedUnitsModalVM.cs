@@ -3,6 +3,7 @@ using SalaryCalculator.Models.DataBase;
 using SalaryCalculator.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SalaryCalculator.ViewModels
@@ -69,26 +70,33 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    if (_wuol == null)
+                    if (Worker == null)
                     {
-                        WorkedUnitsOfLabor wuol = new WorkedUnitsOfLabor()
-                        {
-                            WorkerId = Worker.Id,
-                            WorkedUnits = WorkedUnits
-                        };
-
-                        parentVm.AddWorkedUnits(wuol);
+                        MessageBox.Show("Вы не выбрали сотрудника");
                     }
                     else
                     {
-                        WorkedUnitsOfLabor wuol = new WorkedUnitsOfLabor()
+                        if (_wuol == null)
                         {
-                            Id = _wuol.Id,
-                            WorkerId = Worker.Id,
-                            WorkedUnits = WorkedUnits
-                        };
+                            WorkedUnitsOfLabor wuol = new WorkedUnitsOfLabor()
+                            {
+                                WorkerId = Worker.Id,
+                                WorkedUnits = WorkedUnits
+                            };
 
-                        parentVm.UpdatePosition(wuol);
+                            parentVm.AddWorkedUnits(wuol);
+                        }
+                        else
+                        {
+                            WorkedUnitsOfLabor wuol = new WorkedUnitsOfLabor()
+                            {
+                                Id = _wuol.Id,
+                                WorkerId = Worker.Id,
+                                WorkedUnits = WorkedUnits
+                            };
+
+                            parentVm.UpdatePosition(wuol);
+                        }
                     }
 
                 });

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator" xmlns:viewmodels="clr-namespace:SalaryCalculator.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
+        Title="Калькулятор заработной платы" Height="600" Width="1000" Icon="/Resources/Assets/Icon.png" >
+
     <Window.DataContext>
         <viewmodels:MainViewModel/>
     </Window.DataContext>
@@ -20,7 +21,7 @@
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToPositionsPage}">Должности</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkersPage}">Сотрудники</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToWorkedUnitsPage}">Отработанные ед. труда</Button>
-            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToAllowancesAndFinesPage}">Надбавки и штрафы</Button>
+            <Button Style="{StaticResource BtMenu}" Command="{Binding GoToAllowancesAndFinesPage}">Премии штрафы</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding GoToResults}">Результаты</Button>
             <Button Style="{StaticResource BtMenu}" Visibility="Collapsed">Помощь</Button>
             <Button Style="{StaticResource BtMenu}" Command="{Binding Exit}">Выход</Button>
