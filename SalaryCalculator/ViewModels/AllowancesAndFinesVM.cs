@@ -82,17 +82,12 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    try
-                    {
+                   
                         AllowancesAndFinesModel AaFModel = obj as AllowancesAndFinesModel;
                         ApplicationDbContext.GetContext().AllowancesAndFines.Remove(ApplicationDbContext.GetContext().AllowancesAndFines.Find(AaFModel.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
                         GenerateList();
-                    }
-                    catch (DbUpdateException)
-                    {
-                        MessageBox.Show("Вы пытаетесь удалить используемую должность");
-                    }
+                   
                 });
             }
         }

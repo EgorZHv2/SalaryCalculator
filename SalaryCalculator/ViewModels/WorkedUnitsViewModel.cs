@@ -8,6 +8,7 @@ using SalaryCalculator.Views.Windows;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using SalaryCalculator.Interfaces;
+using System;
 
 namespace SalaryCalculator.ViewModels
 {
@@ -82,17 +83,12 @@ namespace SalaryCalculator.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    try
-                    {
+                   
                         WorkedUnitsModel wum = obj as WorkedUnitsModel;
                         ApplicationDbContext.GetContext().WorkedUnitsOfLabors.Remove(ApplicationDbContext.GetContext().WorkedUnitsOfLabors.Find(wum.Id));
                         ApplicationDbContext.GetContext().SaveChanges();
                         GenerateList();
-                    }
-                    catch (DbUpdateException)
-                    {
-                        MessageBox.Show("Вы пытаетесь удалить используемую должность");
-                    }
+                   
                 });
             }
         }

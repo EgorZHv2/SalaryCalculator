@@ -87,7 +87,7 @@ namespace SalaryCalculator.ViewModels
                         ApplicationDbContext.GetContext().SaveChanges();
                         GenerateList();
                     }
-                    catch (DbUpdateException)
+                    catch 
                     {
                         MessageBox.Show("Вы пытаетесь удалить используемую форму оплаты труда");
                     }

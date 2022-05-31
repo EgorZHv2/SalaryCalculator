@@ -88,9 +88,9 @@ namespace SalaryCalculator.ViewModels
                         ApplicationDbContext.GetContext().SaveChanges();
                         GenerateList();
                     }
-                    catch (DbUpdateException)
+                    catch 
                     {
-                        MessageBox.Show("Вы пытаетесь удалить используемую должность");
+                        MessageBox.Show("Вы пытаетесь удалить используемого сотрудника");
                     }
                 });
             }
