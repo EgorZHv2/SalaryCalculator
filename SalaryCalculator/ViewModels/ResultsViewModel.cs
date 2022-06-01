@@ -6,11 +6,17 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using SalaryCalculator.Interfaces;
+using Microsoft.Win32;
+using System.IO;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
 
 namespace SalaryCalculator.ViewModels
 {
     public class ResultsViewModel : BaseVm,IVMWithDataGrid
     {
+        List<ResultsModel> resultslist = new List<ResultsModel>();
         public ResultsViewModel()
         {
             GenerateList();
@@ -39,10 +45,33 @@ namespace SalaryCalculator.ViewModels
                 });
             }
         }
+
+        public  ICommand ExportToCsv
+        {
+            get
+            {
+                return new DelegateCommand(async obj =>
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.FileName = "Results.csv";
+                    saveFileDialog.ShowDialog();
+                    string path = saveFileDialog.FileName;
+                    CsvConfiguration configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        Delimiter = ";"
+                    };
+                    using(StreamWriter streamWriter = new StreamWriter(path,false,System.Text.Encoding.UTF8))
+                        using(CsvWriter csvWriter = new CsvWriter(streamWriter, configuration))
+                    {
+                      await csvWriter.WriteRecordsAsync(resultslist);
+                    }
+                });
+            }
+        }
         public void GenerateList()
         {
             List<Worker> workers = ApplicationDbContext.GetContext().Workers.ToList();
-            List<ResultsModel> newlist = new List<ResultsModel>();
+            resultslist = new List<ResultsModel>();
             foreach (Worker worker in workers)
             {
                 decimal? basesalary = ApplicationDbContext.GetContext().Positions.FirstOrDefault(s => s.Id == worker.PositionId).BasicSalarePerWorkUnit;
@@ -52,15 +81,15 @@ namespace SalaryCalculator.ViewModels
                 AllowancesAndFine? AaF = ApplicationDbContext.GetContext().AllowancesAndFines.FirstOrDefault(s => s.WorkerId == worker.Id);
 
 
-                newlist.Add(new ResultsModel
+                resultslist.Add(new ResultsModel
                 {
-                    FIO = worker.FirstName + " " + worker.LastName + " " + worker.Patronimyc,
+                    FIO = (worker.FirstName + " " + worker.LastName + " " + worker.Patronimyc).Trim(),
                     Result = (workedunits <= standartinunits ? basesalary * workedunits : basesalary * standartinunits + oversalary * (workedunits - standartinunits)) + (AaF != null ? AaF.Bonus: 0) - (AaF != null ? AaF.Fine : 0)
 
                 });
 
             }
-            ResultsModels = newlist;
+            ResultsModels = resultslist;
             
         }
     }

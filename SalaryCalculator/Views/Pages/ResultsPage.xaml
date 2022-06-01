@@ -31,6 +31,6 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource BtMenu}" Visibility="Collapsed" >Экспорт в Excel</Button>
+        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource BtMenu}" Command="{Binding ExportToCsv}" >Экспорт в CSV</Button>
     </Grid>
 </Page>

@@ -56,9 +56,9 @@ namespace SalaryCalculator.ViewModels
 
        
 
-        private int workedunits;
+        private int? workedunits;
 
-        public int WorkedUnits
+        public int? WorkedUnits
         {
             get { return workedunits; }
             set { workedunits = value; OnPropertyChanged(); }
@@ -81,7 +81,7 @@ namespace SalaryCalculator.ViewModels
                             WorkedUnitsOfLabor wuol = new WorkedUnitsOfLabor()
                             {
                                 WorkerId = Worker.Id,
-                                WorkedUnits = WorkedUnits
+                                WorkedUnits = WorkedUnits == null ? 0 :  WorkedUnits
                             };
 
                             parentVm.AddWorkedUnits(wuol);
@@ -92,7 +92,7 @@ namespace SalaryCalculator.ViewModels
                             {
                                 Id = _wuol.Id,
                                 WorkerId = Worker.Id,
-                                WorkedUnits = WorkedUnits
+                                WorkedUnits = WorkedUnits == null ? 0 : WorkedUnits
                             };
 
                             parentVm.UpdatePosition(wuol);

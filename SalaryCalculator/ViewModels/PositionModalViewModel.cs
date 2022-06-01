@@ -1,6 +1,7 @@
 ﻿using SalaryCalculator.Models;
 using SalaryCalculator.Models.DataBase;
 using SalaryCalculator.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -112,9 +113,9 @@ namespace SalaryCalculator.ViewModels
                             {
                                 Name = Name,
                                 PaymentFormId = PayementForm.Id,
-                                StandartInUnits = StandartInUnits,
-                                BasicSalarePerWorkUnit = Salary,
-                                SalarePerWorkUnitOverTheNorm = OverSalary
+                                StandartInUnits = StandartInUnits == null ? 0 : StandartInUnits,
+                                BasicSalarePerWorkUnit = Salary == null ? 0 : Salary,
+                                SalarePerWorkUnitOverTheNorm = OverSalary == null ? 0 : OverSalary 
                             };
 
                             parentVm.AddPosition(pos);
@@ -126,9 +127,9 @@ namespace SalaryCalculator.ViewModels
                                 Id = position.Id,
                                 Name = Name,
                                 PaymentFormId = PayementForm.Id,
-                                StandartInUnits = StandartInUnits,
-                                BasicSalarePerWorkUnit = Salary,
-                                SalarePerWorkUnitOverTheNorm = OverSalary
+                                StandartInUnits = StandartInUnits == null  ? 0 : StandartInUnits,
+                                BasicSalarePerWorkUnit = Salary == null  ? 0 : Salary,
+                                SalarePerWorkUnitOverTheNorm = OverSalary == null ? 0 : OverSalary
                             };
                             parentVm.UpdatePosition(pos);
                         }
