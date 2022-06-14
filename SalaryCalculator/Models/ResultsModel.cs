@@ -10,6 +10,7 @@ namespace SalaryCalculator.Models
     {
         public int Id { get; set; }
         public string? FIO { get; set; }
-        public decimal? Result { get; set; } 
+        public decimal? ResultBefore { get; set; }
+        public decimal? ResultAfther { get; set; }
     }
 }

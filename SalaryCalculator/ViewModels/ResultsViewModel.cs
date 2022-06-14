@@ -11,6 +11,7 @@ using System.IO;
 using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
+using System;
 
 namespace SalaryCalculator.ViewModels
 {
@@ -80,13 +81,15 @@ namespace SalaryCalculator.ViewModels
                 int? workedunits = ApplicationDbContext.GetContext().WorkedUnitsOfLabors.FirstOrDefault(s => s.WorkerId == worker.Id)?.WorkedUnits;
                 AllowancesAndFine? AaF = ApplicationDbContext.GetContext().AllowancesAndFines.FirstOrDefault(s => s.WorkerId == worker.Id);
 
+                decimal? result = (workedunits <= standartinunits ? basesalary * workedunits : basesalary * standartinunits + oversalary * (workedunits - standartinunits)) + (AaF != null ? AaF.Bonus : 0) - (AaF != null ? AaF.Fine : 0);
 
                 resultslist.Add(new ResultsModel
                 {
                     FIO = (worker.FirstName + " " + worker.LastName + " " + worker.Patronimyc).Trim(),
-                    Result = (workedunits <= standartinunits ? basesalary * workedunits : basesalary * standartinunits + oversalary * (workedunits - standartinunits)) + (AaF != null ? AaF.Bonus: 0) - (AaF != null ? AaF.Fine : 0)
+                    ResultBefore = Math.Round((decimal)result,2),
+                    ResultAfther = Math.Round((decimal)(result*(decimal?)0.87),2)
 
-                });
+                });;
 
             }
             ResultsModels = resultslist;
